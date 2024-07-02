@@ -67,8 +67,7 @@ def main():
     parser.add_argument('--epochs', type=int, default=100, help='Number of epochs')
     parser.add_argument('--seed', type=int, default=99, help='Random seed')
     parser.add_argument('--save', type=str, default='./experiment/METR-LA_TESTAM', help='Save path')
-    parser.add_argument('--load_path', type=str,
-                        default='C:/Users/27135/Desktop/实训/PEMS-BAY_result/BEST_PEMS-BAY_1.55.pth')
+    parser.add_argument('--load_path', type=str,default=None)
     parser.add_argument('--lr_mul', type=float, default=1, help='Learning rate multiplier')
     parser.add_argument('--n_warmup_steps', type=int, default=4000, help='Number of warm-up steps')
     parser.add_argument('--quantile', type=float, default=0.7, help='Quantile value')
