@@ -3,7 +3,7 @@ import pandas as pd
 import folium
 import webbrowser
 
-file = 'C:/Users/27135/Desktop/Urban computing/dataset/pems-bay.h5'
+file = 'pems-bay.h5'
 
 f = h5py.File(file, 'r')
 
@@ -14,7 +14,7 @@ datetimes = pd.to_datetime(f['speed']['axis1'][:])  # 观测时间
 print(datetimes)
 print(f['speed']['block0_values'][:].shape, f['speed']['block0_values'][:])  # 每时间每传感器速度
 
-df = pd.read_csv("C:/Users/27135/Desktop/Urban computing/dataset/graph_sensor_locations_bay.csv",
+df = pd.read_csv("graph_sensor_locations_bay.csv",
                  names=['station_id', 'lat', 'lon'])
 mean_lat = df['lat'].mean()
 mean_lon = df['lon'].mean()
