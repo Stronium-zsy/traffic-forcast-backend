@@ -17,8 +17,8 @@ for i in range(speed_data.shape[1]):
 traffic_data = pd.DataFrame(data_dict)
 
 # 设置数据库连接
-user = 'root'
-password = '1234'
+user = 'username'
+password = 'password'
 host = '127.0.0.1'
 port = '3306'
 database = 'transinfo'
