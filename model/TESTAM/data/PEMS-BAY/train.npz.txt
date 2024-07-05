@@ -1,3 +1,1 @@
-run command blow to generate train.npz
-
-python generate_training_data.py --output_dir=data/PEMS-BAY --traffic_df_fiilename=data/pems-bay.h5 --seq_length_x INPUT_SEQ_LENGTH --seq_length_y PRED_SEQ_LENGTH
+请运行 make_dataset 文件夹中的 make_dataset.py 脚本以生成 train.npz 文件。
