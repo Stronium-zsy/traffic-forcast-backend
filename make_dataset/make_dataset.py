@@ -55,7 +55,7 @@ def split_data(npz_file, output_dir, train_ratio=0.7, val_ratio=0.2, test_ratio=
 
 if __name__ == '__main__':
     npz_file = 'PEMS-BAY-2024.npz'
-    # save_data_as_npz(npz_file)
+    save_data_as_npz(npz_file)
 
-    output_dir = 'pems'
+    output_dir = 'pems' # 数据集划分输出到此目录下
     split_data(npz_file, output_dir, 0.7, 0.2, 0.1)
