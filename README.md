@@ -12,14 +12,6 @@
 - sensor_street.json：记录传感器在各街道的分布情况。
 - speed_data.txt：数据文件，请根据里面的链接自行下载。
 
-### data visualization
-
-此文件夹用于将传感器在地图上的可视化
-
-- graph_sensor_locations_bay.csv：保存传感器的经纬度坐标。
-- trans_data.py：绘制地图脚本（需要下载pems-bay.h5文件）。
-- map.html：可视化地图文件。
-
 ### database
 
 此文件夹用于数据库的搭建
