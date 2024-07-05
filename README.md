@@ -33,5 +33,6 @@
 此文件夹用于本项目的模型管理和推理，包含用于加载和应用交通预测模型的脚本和文件。
 <br> 关于TESTAM模型的细节，请参考原论文链接： https://github.com/HyunWookL/TESTAM
 
+- data/PEMS-BAY：请运行 make_dataset 文件夹中的 make_dataset.py 脚本以生成模型的数据集并保存到此目录下。
 - local_inference.py：加载预训练模型进行本地推理，并对预测结果做异常检测。
 - model_pth：保存训练好的模型文件。
