@@ -10,7 +10,7 @@
 
 - utils.py：工具文件，提供根据前端传入的数据生成传感器级别和街道级别的数据分析图表。
 - sensor_street.json：记录传感器在各街道的分布情况。
-- speed_data.txt：数据文件，请根据里面的链接自行下载。
+- speed_data.txt：请运行 make_dataset 文件夹中的 data_to_csv.py 脚本以生成 speed_data.csv 文件。
 
 ### database
 
