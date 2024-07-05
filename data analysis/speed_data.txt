@@ -1,2 +1,1 @@
-speed_data.csv
-群里自取
+请运行 make_dataset 文件夹中的 data_to_csv.py 脚本以生成 speed_data.csv 文件。
