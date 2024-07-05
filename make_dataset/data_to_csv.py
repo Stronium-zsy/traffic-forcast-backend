@@ -5,7 +5,7 @@ start_time = '2024-01-01 00:00:00'
 end_time = '2024-06-30 23:55:00'
 time_points = pd.date_range(start=start_time, end=end_time, freq='5min')
 
-scol = pd.read_csv('sensor_locations.csv')
+scol = pd.read_csv('sensor_locations.csv') # 此文件在model/TESTAM/data文件夹中
 sensor = scol['sensorid']
 
 data = np.load('PEMSBAY_2024.npy')
