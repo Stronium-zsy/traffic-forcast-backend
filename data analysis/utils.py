@@ -340,7 +340,7 @@ def speed_distribution(start_time, end_time):
     speed_distribution = speed_categories.value_counts()
 
     fig, ax = plt.subplots(figsize=(10, 7), subplot_kw=dict(aspect="equal"))
-    colors = plt.cm.viridis(np.linspace(0, 0.8, len(speed_distribution)))
+    colors = plt.cm.viridis(np.linspace(0.1, 0.7, len(speed_distribution)))
     wedges, texts, autotexts = ax.pie(
         speed_distribution.values,
         labels=speed_distribution.index,
