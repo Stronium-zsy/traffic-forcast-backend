@@ -19,6 +19,16 @@
 - sql.md：数据库表的创建方法。
 - data_to_db.py：将pems-bay.h5文件写入数据库的脚本。
 
+### flow_forecast
+
+此文件夹用于根据车速预测车流量
+
+- data_processing.py：数据处理脚本。
+- inference.py：模型推理脚本。
+- model.py：模型定义文件。
+- model_para.pth：保存模型参数的文件。
+- train.py：模型训练脚本。
+
 ### make_dateset
 
 此文件夹用于创建项目的数据集
