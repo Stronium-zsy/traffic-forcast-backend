@@ -1,4 +1,0 @@
-请运行 make_dataset 文件夹中的 data_to_csv.py 脚本以生成 speed_data.csv 文件。
-或访问下面的链接下载
-https://www.alipan.com/s/N8Vaxf2cdh8
-点击链接保存，或者复制本段内容，打开「阿里云盘」APP ，无需下载极速在线查看，视频原画倍速播放。
