@@ -1,22 +1,47 @@
 import asyncio
 import json
-import h5py
 import pandas as pd
 import websockets
+import redis
 
 # 加载数据
-file = 'C:\\Users\\86133\\Downloads\\pems-bay.h5'
-f = h5py.File(file, 'r')
-sensor_ids = f['speed']['axis0'][:]
-datetimes = pd.to_datetime(f['speed']['axis1'][:])
-speed_data = f['speed']['block0_values'][:]
+file = 'speed_data.csv'
+data = pd.read_csv(file)
 
-# 读取街道数据
-with open('sorted_sensor_street.json', 'r') as file:
-    street_data = json.load(file)
+# 提取传感器 ID（除去第一列的timestamp，并去除单引号）
+sensor_ids = data.columns[1:]
+
+# 提取时间戳
+datetimes = pd.to_datetime(data['time'])
+
+# 提取速度数据（去除第一列的timestamp）
+speed_data = data.iloc[:, 1:].values
+
+# 初始化 Redis 连接
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 # 初始化 averageSpeeds
 average_speeds = {int(sensor_id): {'totalSpeed': 0, 'count': 0} for sensor_id in sensor_ids}
+
+# 尝试读取街道数据
+try:
+    with open('sorted_sensor_street.json', 'r') as file:
+        street_data = json.load(file)
+except FileNotFoundError:
+    street_data = {}
+
+# 加载 initial_markers 数据
+with open('initial_markers.json', 'r') as file:
+    initial_markers = json.load(file)
+
+# 将传感器位置数据存储到 Redis
+for marker in initial_markers:
+    sensor_id = marker['sensor_id']
+    position = marker['position']
+    redis_client.hset(f"sensor:{sensor_id}", mapping={
+        'latitude': position[0],
+        'longitude': position[1]
+    })
 
 async def send_data(websocket, path):
     time_step = 0
@@ -30,6 +55,7 @@ async def send_data(websocket, path):
             sensor_id = int(sensor_ids[s])
             average_speeds[sensor_id]['totalSpeed'] += speed
             average_speeds[sensor_id]['count'] += 1
+            redis_client.set(sensor_id, speed)
             sensor_data.append({
                 'sensor_id': sensor_id,
                 'speed': speed,
@@ -73,7 +99,3 @@ start_server = websockets.serve(send_data, "localhost", 5002)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
-
-
-
-
