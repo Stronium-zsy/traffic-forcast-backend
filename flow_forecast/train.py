@@ -3,7 +3,7 @@ import torch.optim as optim
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 from data_processing import load_and_process_data
-from flow_pre.model import SimpleNN
+from flow_forecast.model import SimpleNN
 
 
 def train(data_path, num_epochs=20, learning_rate=0.001, batch_size=52416):
