@@ -1,6 +1,6 @@
 import torch
-from flow_pre.model import SimpleNN
-from flow_pre.data_processing import adjust_flow
+from flow_forecast.model import SimpleNN
+from flow_forecast.data_processing import adjust_flow
 
 
 def load_model(model_path, device):
