@@ -22,5 +22,5 @@ def call_agent():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1',port='5002')
     # 2024年3月4日晚上18点，我想从Ames Research Center 前往 San Jose的火车站，如何规划路线？
