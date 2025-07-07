@@ -10,9 +10,9 @@ CORS(app)
 @app.route('/call_agent', methods=['GET'])
 def call_agent():
     prompt = request.args.get('user_prompt')
-    response = Application.call(app_id='0d67e26286e54f9b9f20d52175493733',
+    response = Application.call(app_id='<your_app_id>',
                                 prompt=prompt,
-                                api_key='sk-08431a08d23b4ed6a9942277c6c182e3')
+                                api_key=<your_api_key>)
 
     if response.status_code != HTTPStatus.OK:
         print('request_id=%s, code=%s, message=%s\n' % (response.request_id, response.status_code, response.message))
